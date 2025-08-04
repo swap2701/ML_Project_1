@@ -12,7 +12,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
 
-from src.exception import CustomerException
+from src.exception import CustomException
 from src.logger import logging
 
 from src.utlis import save_obj
@@ -72,7 +72,7 @@ class DataTransformation:
             return preprocessor
         
         except Exception as e:
-            raise CustomerException(e,sys)
+            raise CustomException(e,sys)
         
     def initiate_data_transformation(self,train_path,test_path):
 
@@ -122,5 +122,5 @@ class DataTransformation:
             )
 
         except Exception as e:
-            raise CustomerException(e,sys)
+            raise CustomException(e,sys)
 

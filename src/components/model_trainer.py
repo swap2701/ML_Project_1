@@ -14,7 +14,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import r2_score
 from xgboost import XGBRegressor
 
-from src.exception import CustomerException
+from src.exception import CustomException
 from src.logger import logging
 
 
@@ -63,7 +63,7 @@ class ModelTrainer():
             best_model=models[best_model_name]
 
             if best_model_score<0.6:
-                raise CustomerException("No Best Model found")
+                raise CustomException("No Best Model found")
             logging.info("Best found model on both training and testing dataset")
 
             save_obj(
@@ -76,4 +76,4 @@ class ModelTrainer():
             return Score_r2
         
         except Exception as e:
-            raise CustomerException(e,sys)
+            raise CustomException(e,sys)
